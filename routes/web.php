@@ -33,11 +33,10 @@ Route::get('get-support-id',function(){
 //Route::get('/resume', 'App\Http\Controllers\API\ResumeController@index')->name('resume.index');
 //Route::get('/resume/download','App\Http\Controllers\API\ResumeController@download')->name('resume.download');
 
-Route::get('/number/{id}', 'App\Http\Controllers\API\ResumeController@number');
-// Route::get('/resume/{id}/{num}', 'App\Http\Controllers\API\ResumeController@resume');
+
+//view cv & resume show...............
 Route::get('/resume/{id}/{num}', 'App\Http\Controllers\API\ResumeController@resume');
 Route::get('/view_cv/{mobile}', 'App\Http\Controllers\API\ResumeController@view');
-//Route::get('/view_cv', [TestController::class, 'view']);
 
 
 

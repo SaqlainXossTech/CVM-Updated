@@ -42,6 +42,10 @@ class ResumeController extends Controller
             $cv = DB::table('cvs')->where('id',$id)->get();
             $id = DB::table('users')->where('mobile', $num)->value('id');
 
+
+            // $num = $request->num;
+            // $id = DB::table('users')->where('mobile', $request->num)->value('id');
+
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
             $education = DB::table('education')->where('user_id', $id)->get();
@@ -57,9 +61,7 @@ class ResumeController extends Controller
         elseif($id == 2)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -76,9 +78,7 @@ class ResumeController extends Controller
         elseif($id == 3)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -95,9 +95,7 @@ class ResumeController extends Controller
         elseif($id == 4)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -114,9 +112,7 @@ class ResumeController extends Controller
         elseif($id == 5)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -133,9 +129,7 @@ class ResumeController extends Controller
         elseif($id == 6)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -152,9 +146,7 @@ class ResumeController extends Controller
         elseif($id == 7)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -171,9 +163,7 @@ class ResumeController extends Controller
         elseif($id == 8)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -190,9 +180,7 @@ class ResumeController extends Controller
         elseif($id == 9)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -209,9 +197,7 @@ class ResumeController extends Controller
         elseif($id == 10)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -228,9 +214,7 @@ class ResumeController extends Controller
         elseif($id == 11)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -247,9 +231,7 @@ class ResumeController extends Controller
         elseif($id == 12)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -266,9 +248,7 @@ class ResumeController extends Controller
         elseif($id == 13)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
@@ -285,9 +265,7 @@ class ResumeController extends Controller
         elseif($id == 14)
         {
             $cv = DB::table('cvs')->where('id',$id)->get();
-
-            $num = $request->num;
-            $id = DB::table('users')->where('mobile', $request->num)->value('id');
+            $id = DB::table('users')->where('mobile', $num)->value('id');
 
             $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
             $projects = DB::table('projects')->where('user_id', $id)->get();
