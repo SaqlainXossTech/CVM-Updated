@@ -28,15 +28,15 @@ Route::post('logout', 'App\Http\Controllers\API\RegisterController@logout');
 
 //Middleware Protected Route.......................
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    
+
     //Profile Information API.............................
     Route::post('profile','App\Http\Controllers\API\ProfileController@index');
     Route::post('profileV2','App\Http\Controllers\API\ProfileController@index_v2');
 
-    
+
     //Payment API.............................
     Route::get('nagadpayment', 'App\Http\Controllers\API\PaymentControlle@nagadPayment');
-    
+
     //Personal Information API.............................
     Route::post('infos', 'App\Http\Controllers\API\PersonalInfoController@index');
     Route::post('info', 'App\Http\Controllers\API\PersonalInfoController@store');
@@ -72,31 +72,34 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('reference', 'App\Http\Controllers\API\ReferenceController@store');
     Route::post('reference/update/{id}', 'App\Http\Controllers\API\ReferenceController@update');
     Route::delete('reference/delete/{id}', 'App\Http\Controllers\API\ReferenceController@destroy');
-    
+
     //Training API...........................................
     Route::post('trainings', 'App\Http\Controllers\API\TrainingController@index');
     Route::post('training', 'App\Http\Controllers\API\TrainingController@store');
     Route::post('training/update/{id}', 'App\Http\Controllers\API\TrainingController@update');
     Route::delete('training/delete/{id}', 'App\Http\Controllers\API\TrainingController@destroy');
-    
+
     //InterviewTips API.......................................
     Route::post('interviewtips', 'App\Http\Controllers\API\InterviewTipsController@index');
-    
+
     //Resume download routes..............
-    
+
     Route::get('/resume/download/{id}','App\Http\Controllers\API\ResumeController@apidownload')->name('resume.download');
 
     });
-    
+
     //Job API....................................................
     Route::post('jobs', 'App\Http\Controllers\API\JobController@index');
     Route::post('job', 'App\Http\Controllers\API\JobController@store');
-    
+
     //CV API.............................................
     Route::get('cv', 'App\Http\Controllers\API\CvController@index');
-    
+
     //Resume download routes..............
     Route::get('/resume', 'App\Http\Controllers\API\ResumeController@index')->name('resume.index');
+
+    //Suggetions API.............................................
+    Route::get('suggetion/{data}', 'App\Http\Controllers\API\SuggetionController@index');
 
 
 
