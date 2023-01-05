@@ -47,13 +47,13 @@ Route::get('executepayment', 'App\Http\Controllers\PaymentController@executepaym
 
 
 
-// Admin Panel..................
+//Admin Panel..................
 
 Route::get('/admin', function () {
-    return redirect('/admin/dashboard');
+    return redirect('/admin/login');
 });
 
-Route::get('/admin/dashboard', 'App\Http\Controllers\Admin\AdminController@dashboard');
+Route::post('/admin/dashboard', 'App\Http\Controllers\Admin\AdminController@dashboard');
 
 Route::prefix('admin')->group(function () {
     Route::get('/users', 'App\Http\Controllers\Admin\AdminController@allUser');
@@ -66,6 +66,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/trainings', 'App\Http\Controllers\Admin\AdminController@trainings');
     Route::get('/experiences', 'App\Http\Controllers\Admin\AdminController@experiences');
     Route::get('/search/{page?}', 'App\Http\Controllers\Admin\AdminController@search');
+
+    //Admin Authentication...........................................................
+    Route::get('/admins', 'App\Http\Controllers\Admin\AdminController@allAdmin');
+    Route::get('/login', 'App\Http\Controllers\Admin\AdminController@adminLogin');
+    Route::get('/logout', 'App\Http\Controllers\Admin\AdminController@adminLogout');
 
     //Interview Tips Route...........................................................
     Route::get('/add-tips', 'App\Http\Controllers\Admin\AdminController@index_tips');

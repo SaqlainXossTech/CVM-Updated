@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Job;
+use App\Models\Admin;
 use App\Models\User;
 use App\Models\Payment;
 use App\Models\Project;
@@ -22,22 +23,85 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+session_start();
 
 class AdminController extends Controller
 {
+    //Admin Authentication......................
+
+    public function AdminAuthCheck()
+    {
+        $admin_id = Session::get('admin_id');
+
+        if($admin_id)
+        {
+            return;
+        }
+        else{
+            return Redirect::to('/admin')->send();
+        }
+    }
+
+    public function adminLogin()
+    {
+        return view('admin.auth.login');
+    }
+
+    public function adminLogout()
+    {
+        Session::flush();
+
+        Auth::logout();
+
+        return Redirect('admin/login');
+    }
+
+    //Admin Authentication......................
+
     //Dashboard.................................
 
-    public function dashboard()
+    public function dashboard(Request $request)
     {
-        return view('admin.dashboard');
+        $admin_username=$request->username;
+        $admin_password=$request->password;
+
+        $data=DB::table('admins')
+                ->where('username', $admin_username)
+                ->where('password', $admin_password)
+                ->first();
+
+            if($data)
+            {
+                Session::put('username', $data->username);
+                Session::put('admin_id', $data->id);
+
+                // return Redirect::to('/admin/dashboard');
+                return view('admin.dashboard');
+            }
+
+            else{
+                Session::put('message', 'Email or Password Invalid');
+                return Redirect::to('/admin');
+            }
     }
 
     //Dashboard.................................
 
     //Views.....................................
 
+    public function allAdmin()
+    {
+        $this->AdminAuthCheck();
+        $allAdmins=Admin::latest()->get();
+
+        return view('admin.admins', compact('allAdmins'));
+    }
+
     public function allUser()
     {
+        $this->AdminAuthCheck();
         $allUsers=User::latest()->paginate(100);
         $totalUsers=User::count() - 19;
 
@@ -46,6 +110,7 @@ class AdminController extends Controller
 
     public function personalInfo()
     {
+        $this->AdminAuthCheck();
         $personalInfos=PersonalInfo::latest()->paginate(100);
 
         return view('admin.personalInfo', compact('personalInfos'));
@@ -53,6 +118,7 @@ class AdminController extends Controller
 
     public function payments()
     {
+        $this->AdminAuthCheck();
         $payments=Payment::latest()->paginate(100);
 
         $total_payment = Payment::sum('amount');
@@ -62,6 +128,7 @@ class AdminController extends Controller
 
     public function additionalInfo()
     {
+        $this->AdminAuthCheck();
         $infos=AdditonalInfo::latest()->paginate(100);
 
         return view('admin.additionalInfo', compact('infos'));
@@ -69,6 +136,7 @@ class AdminController extends Controller
 
     public function educations()
     {
+        $this->AdminAuthCheck();
         $educations=Education::latest()->paginate(100);
 
         return view('admin.educations', compact('educations'));
@@ -76,6 +144,7 @@ class AdminController extends Controller
 
     public function projects()
     {
+        $this->AdminAuthCheck();
         $projects=Project::latest()->paginate(100);
 
         return view('admin.projects', compact('projects'));
@@ -83,6 +152,7 @@ class AdminController extends Controller
 
     public function references()
     {
+        $this->AdminAuthCheck();
         $references=Reference::latest()->paginate(100);
 
         return view('admin.references', compact('references'));
@@ -90,6 +160,7 @@ class AdminController extends Controller
 
     public function trainings()
     {
+        $this->AdminAuthCheck();
         $trainings=Training::latest()->paginate(100);
 
         return view('admin.trainings', compact('trainings'));
@@ -97,6 +168,7 @@ class AdminController extends Controller
 
     public function experiences()
     {
+        $this->AdminAuthCheck();
         $experiences=WorkExp::latest()->paginate(100);
 
         return view('admin.experiences', compact('experiences'));
@@ -108,11 +180,13 @@ class AdminController extends Controller
 
     public function index_tips()
     {
+        $this->AdminAuthCheck();
         return view('admin.add-tips');
     }
 
     public function all_tips()
     {
+        $this->AdminAuthCheck();
         $all_interview_tips=InterviewTips::latest()->paginate(100);
 
         return view('admin.all-tips', compact('all_interview_tips'));
@@ -120,7 +194,7 @@ class AdminController extends Controller
 
     public function save_tips(Request $request)
     {
-
+        $this->AdminAuthCheck();
         $add_tips = new InterviewTips();
 
         $add_tips->tips = $request->input('tips');
@@ -132,13 +206,14 @@ class AdminController extends Controller
 
     public function edit_tips($id)
     {
+        $this->AdminAuthCheck();
         $edit_tips = InterviewTips::where('id',$id)->first();
         return view('admin.edit-tips', compact('edit_tips'));
     }
 
     public function update_tips(Request $request, $id)
     {
-
+        $this->AdminAuthCheck();
         $update_tips = InterviewTips::find($id);
         $update_tips->update($request->all());
 
@@ -148,6 +223,7 @@ class AdminController extends Controller
 
     public function delete_tips($id)
     {
+        $this->AdminAuthCheck();
         InterviewTips::where('id',$id)->delete();
 
         Session::put('message','Deleted Successfully!!');
@@ -160,11 +236,13 @@ class AdminController extends Controller
 
     public function index_suggetions()
     {
+        $this->AdminAuthCheck();
         return view('admin.add-suggetions');
     }
 
     public function all_suggetions()
     {
+        $this->AdminAuthCheck();
         $all_suggetions=Suggetion::latest()->paginate(100);
 
         return view('admin.all-suggetions', compact('all_suggetions'));
@@ -172,7 +250,7 @@ class AdminController extends Controller
 
     public function save_suggetions(Request $request)
     {
-
+        $this->AdminAuthCheck();
         $add_suggetions = new Suggetion();
 
         $add_suggetions->inst_name = $request->input('inst_name');
@@ -187,13 +265,14 @@ class AdminController extends Controller
 
     public function edit_suggetions($id)
     {
+        $this->AdminAuthCheck();
         $edit_suggetions = Suggetion::where('id',$id)->first();
         return view('admin.edit-suggetions', compact('edit_suggetions'));
     }
 
     public function update_suggetions(Request $request, $id)
     {
-
+        $this->AdminAuthCheck();
         $update_suggetions = Suggetion::find($id);
         $update_suggetions->update($request->all());
 
@@ -203,6 +282,7 @@ class AdminController extends Controller
 
     public function delete_suggetions($id)
     {
+        $this->AdminAuthCheck();
         Suggetion::where('id',$id)->delete();
 
         Session::put('message','Deleted Successfully!!');
@@ -215,11 +295,13 @@ class AdminController extends Controller
 
     public function index_jobs()
     {
+        $this->AdminAuthCheck();
         return view('admin.add-jobs');
     }
 
     public function all_jobs()
     {
+        $this->AdminAuthCheck();
         $all_jobs=Job::latest()->paginate(100);
 
         return view('admin.all-jobs', compact('all_jobs'));
@@ -227,7 +309,7 @@ class AdminController extends Controller
 
     public function save_jobs(Request $request)
     {
-
+        $this->AdminAuthCheck();
         $add_jobs = new Job();
 
         $add_jobs->job_title = $request->input('job_title');
@@ -254,13 +336,14 @@ class AdminController extends Controller
 
     public function edit_jobs($id)
     {
+        $this->AdminAuthCheck();
         $edit_jobs = Job::where('id',$id)->first();
         return view('admin.edit-jobs', compact('edit_jobs'));
     }
 
     public function update_jobs(Request $request, $id)
     {
-
+        $this->AdminAuthCheck();
         $update_jobs = Job::find($id);
 
         $pdf_file = $request->file('pdf');
@@ -282,6 +365,7 @@ class AdminController extends Controller
 
     public function delete_jobs($id)
     {
+        $this->AdminAuthCheck();
         $delete_job = Job::find($id);
         unlink($delete_job->pdf_link);
         $delete_job = Job::where('id',$id)->delete();
@@ -296,6 +380,7 @@ class AdminController extends Controller
 
     public function search(Request $request)
     {
+        $this->AdminAuthCheck();
         if($request->user)
         {
             $totalUsers=User::count() - 17;
@@ -413,6 +498,7 @@ class AdminController extends Controller
 
     public function userReportPDF()
     {
+        $this->AdminAuthCheck();
         $data = [
             'allUsers' => User::latest()->paginate(100),
             'totalUsers' => User::count() - 19,
@@ -426,6 +512,7 @@ class AdminController extends Controller
 
     public function paymentReportPDF()
     {
+        $this->AdminAuthCheck();
         $data = [
             'payments' => Payment::latest()->paginate(100),
             'total_payment' => Payment::sum('amount'),
@@ -439,11 +526,13 @@ class AdminController extends Controller
 
     public function userReportExcel()
     {
+        $this->AdminAuthCheck();
         return Excel::download(new UsersExport, 'CVM User Report.xlsx');
     }
 
     public function paymentReportExcel()
     {
+        $this->AdminAuthCheck();
         return Excel::download(new PaymentsExport, 'CVM Payment Report.xlsx');
     }
 
