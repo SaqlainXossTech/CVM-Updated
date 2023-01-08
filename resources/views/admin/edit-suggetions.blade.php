@@ -60,6 +60,12 @@
                                 </div>
                             </div>
                             <div class="control-group">
+                                <label class="control-label" for="date01"><b>Present Address</b></label>
+                                <div class="controls">
+                                  <input type="text" class="input-xxlarge" name="present_address" value="{{ $edit_suggetions->present_address }}">
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 <label class="control-label" for="date01"><b>Profile Summary</b></label>
                                 <div class="controls">
                                   <input type="text" class="input-xxlarge" name="profile_summary" value="{{ $edit_suggetions->profile_summary }}">

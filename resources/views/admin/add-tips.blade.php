@@ -9,7 +9,7 @@
 				</li>
 				<li>
 					<i class="icon-edit"></i>
-					<a href="#"><b>Add Interview Tips</b></a>
+					<a href="{{URL::to('/admin/add-tips')}}"><b>Add Interview Tips</b></a>
 				</li>
 			</ul>
 

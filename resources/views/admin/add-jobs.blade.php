@@ -9,7 +9,7 @@
 				</li>
 				<li>
 					<i class="icon-edit"></i>
-					<a href="#"><b>Add Job Circular</b></a>
+					<a href="{{URL::to('/admin/add-jobs')}}"><b>Add Job Circular</b></a>
 				</li>
 			</ul>
 

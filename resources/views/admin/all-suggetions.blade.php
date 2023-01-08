@@ -34,6 +34,7 @@
                       <th>Institution Name</th>
                       <th>Department</th>
                       <th>Skills</th>
+                      <th>Present Address</th>
                       <th>Profile Summary</th>
                       <th>Action</th>
                   </tr>
@@ -45,6 +46,7 @@
                     <td class="center">{{ $data->inst_name }}</td>
                     <td class="center">{{ $data->dept }}</td>
                     <td class="center">{{ $data->skill }}</td>
+                    <td class="center">{{ $data->present_address }}</td>
                     <td class="center">{{ $data->profile_summary }}</td>
                     <td class="center">
                             <a class="btn btn-info" href="{{URL::to('/admin/edit-suggetions/'. $data->id)}}">

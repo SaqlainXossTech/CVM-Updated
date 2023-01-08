@@ -9,7 +9,7 @@
 				</li>
 				<li>
 					<i class="icon-edit"></i>
-					<a href="#"><b>Add Suggetions</b></a>
+					<a href="{{URL::to('/admin/add-suggetions')}}"><b>Add Suggetions</b></a>
 				</li>
 			</ul>
 
@@ -57,6 +57,12 @@
                                 <label class="control-label" for="date01"><b>Skill</b></label>
                                 <div class="controls">
                                   <input type="text" class="input-xxlarge" name="skill">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="date01"><b>Present Address</b></label>
+                                <div class="controls">
+                                  <input type="text" class="input-xxlarge" name="present_address">
                                 </div>
                             </div>
                             <div class="control-group">

@@ -262,6 +262,7 @@ class AdminController extends Controller
         $add_suggetions->inst_name = $request->input('inst_name');
         $add_suggetions->dept = $request->input('dept');
         $add_suggetions->skill = $request->input('skill');
+        $add_suggetions->present_address = $request->input('present_address');
         $add_suggetions->profile_summary = $request->input('profile_summary');
         $add_suggetions->save();
 
