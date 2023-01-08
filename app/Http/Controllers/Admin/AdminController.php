@@ -58,11 +58,7 @@ class AdminController extends Controller
         return Redirect('admin/login');
     }
 
-    //Admin Authentication......................
-
-    //Dashboard.................................
-
-    public function dashboard(Request $request)
+    public function adminLoginAuth(Request $request)
     {
         $admin_username=$request->username;
         $admin_password=$request->password;
@@ -77,14 +73,24 @@ class AdminController extends Controller
                 Session::put('username', $data->username);
                 Session::put('admin_id', $data->id);
 
-                // return Redirect::to('/admin/dashboard');
-                return view('admin.dashboard');
+                return Redirect::to('/admin/dashboard');
+                // return view('admin.dashboard');
             }
 
             else{
                 Session::put('message', 'Email or Password Invalid');
                 return Redirect::to('/admin');
             }
+    }
+
+    //Admin Authentication......................
+
+    //Dashboard.................................
+
+    public function dashboard()
+    {
+        $this->AdminAuthCheck();
+        return view('admin.dashboard');
     }
 
     //Dashboard.................................

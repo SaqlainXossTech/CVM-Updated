@@ -71,7 +71,7 @@
 					<div class="container">
                         <h1>Admin Login</h1>
                     </div>
-					<form class="form-horizontal" action="{{URL::to('/admin/dashboard')}}" method="post">
+					<form class="form-horizontal" action="{{URL::to('/admin/admin-login-auth')}}" method="post">
 						@csrf
 						<fieldset>
 

@@ -53,9 +53,8 @@ Route::get('/admin', function () {
     return redirect('/admin/login');
 });
 
-Route::post('/admin/dashboard', 'App\Http\Controllers\Admin\AdminController@dashboard');
-
 Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', 'App\Http\Controllers\Admin\AdminController@dashboard');
     Route::get('/users', 'App\Http\Controllers\Admin\AdminController@allUser');
     Route::get('/personal-info', 'App\Http\Controllers\Admin\AdminController@personalInfo');
     Route::get('/payments', 'App\Http\Controllers\Admin\AdminController@payments');
@@ -70,6 +69,7 @@ Route::prefix('admin')->group(function () {
     //Admin Authentication...........................................................
     Route::get('/admins', 'App\Http\Controllers\Admin\AdminController@allAdmin');
     Route::get('/login', 'App\Http\Controllers\Admin\AdminController@adminLogin');
+    Route::post('/admin-login-auth', 'App\Http\Controllers\Admin\AdminController@adminLoginAuth');
     Route::get('/logout', 'App\Http\Controllers\Admin\AdminController@adminLogout');
 
     //Interview Tips Route...........................................................
