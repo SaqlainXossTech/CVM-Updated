@@ -9,5 +9,5 @@ class Suggetion extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['inst_name', 'dept', 'skill', 'profile_summary','location'];
+    protected $fillable = ['inst_name', 'dept', 'skill', 'profile_summary', 'present_address', 'location'];
 }

@@ -18,6 +18,7 @@ class CreateSuggetionsTable extends Migration
             $table->string('inst_name')->nullable();
             $table->string('dept')->nullable();
             $table->string('skill')->nullable();
+            $table->string('present_address')->nullable();
             $table->string('profile_summary')->nullable();
             $table->string('location')->nullable();
             $table->timestamps();
