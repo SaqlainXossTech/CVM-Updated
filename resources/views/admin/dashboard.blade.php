@@ -16,34 +16,74 @@
 
 				<div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
 					<div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
-					<div class="number">854<i class="icon-arrow-up"></i></div>
-					<div class="title">visits</div>
+					<div class="number">{{ $totalUsers }}<i class="icon-arrow-up"></i></div>
+					<div class="title">Active Users</div>
 					<div class="footer">
-						<a href="#"> read full report</a>
+						<a href="{{URL::to('/admin/users')}}"> read full report</a>
 					</div>
 				</div>
 				<div class="span3 statbox green" onTablet="span6" onDesktop="span3">
-					<div class="boxchart">1,2,6,4,0,8,2,4,5,3,1,7,5</div>
-					<div class="number">123<i class="icon-arrow-up"></i></div>
-					<div class="title">sales</div>
+					<div class="boxchart">1,2,6,4,0,8,-2,4,-5,3,1,7,5</div>
+					<div class="number">{{ $total_payment }}<i class="icon-arrow-up"></i></div>
+					<div class="title">Total Payments</div>
 					<div class="footer">
-						<a href="#"> read full report</a>
+						<a href="{{URL::to('/admin/payments')}}"> read full report</a>
 					</div>
 				</div>
 				<div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
-					<div class="boxchart">5,6,7,2,0,-4,-2,4,8,2,3,3,2</div>
-					<div class="number">982<i class="icon-arrow-up"></i></div>
-					<div class="title">orders</div>
+					<div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
+					<div class="number">{{ $total_jobs }}<i class="icon-arrow-up"></i></div>
+					<div class="title">Total Jobs</div>
 					<div class="footer">
-						<a href="#"> read full report</a>
+						<a href="{{URL::to('/admin/all-jobs')}}"> read full report</a>
 					</div>
 				</div>
 				<div class="span3 statbox yellow" onTablet="span6" onDesktop="span3">
 					<div class="boxchart">7,2,2,2,1,-4,-2,4,8,,0,3,3,5</div>
-					<div class="number">678<i class="icon-arrow-down"></i></div>
-					<div class="title">visits</div>
+					<div class="number">{{ $total_tips }}<i class="icon-arrow-up"></i></div>
+					<div class="title">Total Interview Tips</div>
 					<div class="footer">
-						<a href="#"> read full report</a>
+						<a href="{{URL::to('/admin/all-tips')}}"> read full report</a>
+					</div>
+				</div>
+                <div class="span3 statbox red" onTablet="span6" onDesktop="span3">
+					<div class="boxchart">7,2,2,2,1,4,2,4,8,,0,3,3,5</div>
+					<div class="number">{{ $total_inst_name }}<i class="icon-arrow-up"></i></div>
+					<div class="title">Total Institutions</div>
+					<div class="footer">
+						<a href="{{URL::to('/admin/all-suggetions')}}"> read full report</a>
+					</div>
+				</div>
+                <div class="span3 statbox pink" onTablet="span6" onDesktop="span3">
+					<div class="boxchart">7,2,2,2,1,4,2,4,8,,0,3,3,5</div>
+					<div class="number">{{ $total_dept }}<i class="icon-arrow-up"></i></div>
+					<div class="title">Total Departments</div>
+					<div class="footer">
+						<a href="{{URL::to('/admin/all-suggetions')}}"> read full report</a>
+					</div>
+				</div>
+                <div class="span3 statbox greenDark" onTablet="span6" onDesktop="span3">
+					<div class="boxchart">7,2,2,2,1,4,2,4,8,,0,3,3,5</div>
+					<div class="number">{{ $total_skills }}<i class="icon-arrow-up"></i></div>
+					<div class="title">Total Skills</div>
+					<div class="footer">
+						<a href="{{URL::to('/admin/all-suggetions')}}"> read full report</a>
+					</div>
+				</div>
+                <div class="span3 statbox black" onTablet="span6" onDesktop="span3">
+					<div class="boxchart">7,2,2,2,1,4,2,4,8,,0,3,3,5</div>
+					<div class="number">{{ $total_summary }}<i class="icon-arrow-up"></i></div>
+					<div class="title">Total Summary</div>
+					<div class="footer">
+						<a href="{{URL::to('/admin/all-suggetions')}}"> read full report</a>
+					</div>
+				</div>
+                <div class="span3 statbox greenLight" onTablet="span6" onDesktop="span3">
+					<div class="boxchart">7,2,2,2,1,4,2,4,8,,0,3,3,5</div>
+					<div class="number">{{ $total_address }}<i class="icon-arrow-up"></i></div>
+					<div class="title">Total Address</div>
+					<div class="footer">
+						<a href="{{URL::to('/admin/all-suggetions')}}"> read full report</a>
 					</div>
 				</div>
 
@@ -62,27 +102,27 @@
                     <ul class="unstyled">
 
                         <li><span class="sparkLineStats3"></span>
-                            Pageviews:
-                            <span class="number">781</span>
+                            Personal Info:
+                            <span class="number">{{ $total_infos }}</span>
                         </li>
                         <li><span class="sparkLineStats4"></span>
-                            Pages / Visit:
-                            <span class="number">2,19</span>
+                            Educations:
+                            <span class="number">{{ $total_educations }}</span>
                         </li>
                         <li><span class="sparkLineStats5"></span>
-                            Avg. Visit Duration:
-                            <span class="number">00:02:58</span>
+                            Experiences:
+                            <span class="number">{{ $total_experiences }}</span>
                         </li>
                         <li><span class="sparkLineStats6"></span>
-                            Bounce Rate: <span class="number">59,83%</span>
+                            Projects: <span class="number">{{ $total_projects }}</span>
                         </li>
                         <li><span class="sparkLineStats7"></span>
-                            % New Visits:
-                            <span class="number">70,79%</span>
+                            Trainings:
+                            <span class="number">{{ $total_trainings }}</span>
                         </li>
                         <li><span class="sparkLineStats8"></span>
-                            % Returning Visitor:
-                            <span class="number">29,21%</span>
+                            References:
+                            <span class="number">{{ $total_references }}</span>
                         </li>
 
                     </ul>
@@ -508,37 +548,15 @@
 					</div>
 					<div class="box-content">
 						<ul class="dashboard-list metro">
-							<li class="green">
-								<a href="#">
-									<img class="avatar" alt="Lucas" src="{{URL::to('backend/img/avatar.jpg')}}">
+							<li class="pink">
+                                @foreach( $lastUsers as $data )
+								<a href="{{URL::to('/admin/users')}}">
+									<img class="avatar" alt="Lucas" src="{{URL::to($data->image)}}">
 								</a>
-								<strong>Name:</strong> Łukasz Holeczek<br>
-								<strong>Since:</strong> Jul 25, 2012 11:09<br>
-								<strong>Status:</strong> Approved
-							</li>
-							<li class="yellow">
-								<a href="#">
-									<img class="avatar" alt="Bill" src="{{URL::to('backend/img/avatar9.jpg')}}">
-								</a>
-								<strong>Name:</strong> Bill Cole<br>
-								<strong>Since:</strong> Jul 25, 2012 11:09<br>
-								<strong>Status:</strong> Pending
-							</li>
-							<li class="red">
-								<a href="#">
-									<img class="avatar" alt="Jane" src="{{URL::to('backend/img/avatar5.jpg')}}">
-								</a>
-								<strong>Name:</strong> Jane Sanchez<br>
-								<strong>Since:</strong> Jul 25, 2012 11:09<br>
-								<strong>Status:</strong> Banned
-							</li>
-							<li class="blue">
-								<a href="#">
-									<img class="avatar" alt="Kate" src="{{URL::to('backend/img/avatar6.jpg')}}">
-								</a>
-								<strong>Name:</strong> Kate Presley<br>
-								<strong>Since:</strong> Jul 25, 2012 11:09<br>
-								<strong>Status:</strong> Updated
+								<strong>Name:</strong> {{ $data->name }}<br>
+								<strong>Mobile:</strong> {{ $data->mobile }}<br>
+								<strong>Email:</strong> {{ $data->email }}<br>
+                                @endforeach
 							</li>
 						</ul>
 					</div>
@@ -608,17 +626,17 @@
 				<a class="quick-button metro yellow span2">
 					<i class="icon-group"></i>
 					<p>Users</p>
-					<span class="badge">237</span>
+					<span class="badge">{{ $totalUsers }}</span>
 				</a>
 				<a class="quick-button metro red span2">
-					<i class="icon-comments-alt"></i>
-					<p>Comments</p>
-					<span class="badge">46</span>
+					<i class="icon-group"></i>
+					<p>Admins</p>
+					<span class="badge">{{ $totalAdmins }}</span>
 				</a>
 				<a class="quick-button metro blue span2">
 					<i class="icon-shopping-cart"></i>
-					<p>Orders</p>
-					<span class="badge">13</span>
+					<p>Templates</p>
+					<span class="badge">{{ $totalTemplates }}</span>
 				</a>
 				<a class="quick-button metro green span2">
 					<i class="icon-barcode"></i>

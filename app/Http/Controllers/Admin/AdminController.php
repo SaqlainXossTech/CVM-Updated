@@ -18,6 +18,7 @@ use App\Models\AdditonalInfo;
 use App\Models\InterviewTips;
 use App\Exports\UsersExport;
 use App\Exports\PaymentsExport;
+use App\Models\Cv;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use Maatwebsite\Excel\Facades\Excel;
@@ -90,7 +91,33 @@ class AdminController extends Controller
     public function dashboard()
     {
         $this->AdminAuthCheck();
-        return view('admin.dashboard');
+
+        $lastUsers = DB::table('users')
+                        ->join('personal_infos','users.id', '=', 'personal_infos.user_id')
+                        ->select('users.name','users.mobile','personal_infos.email','personal_infos.image')
+                        ->orderBy('users.created_at','desc')
+                        ->limit(5)
+                        ->get();
+
+        $totalUsers=User::count() - 19;
+        $totalAdmins=Admin::count();
+        $totalTemplates=Cv::count();
+        $total_payment = Payment::sum('amount');
+        $total_jobs = Job::count();
+        $total_tips = InterviewTips::count();
+        $total_inst_name = Suggetion::count('inst_name');
+        $total_dept = Suggetion::count('dept');
+        $total_skills = Suggetion::count('skill');
+        $total_summary = Suggetion::count('profile_summary');
+        $total_address = Suggetion::count('present_address');
+        $total_infos = PersonalInfo::count();
+        $total_educations = Education::count();
+        $total_experiences = WorkExp::count();
+        $total_projects = Project::count();
+        $total_trainings = Training::count();
+        $total_references = Reference::count();
+
+        return view('admin.dashboard', compact('lastUsers','totalUsers','totalAdmins','totalTemplates','total_payment','total_jobs','total_tips','total_inst_name','total_dept','total_skills','total_summary','total_address','total_infos','total_educations','total_projects','total_experiences','total_trainings','total_references'));
     }
 
     //Dashboard.................................

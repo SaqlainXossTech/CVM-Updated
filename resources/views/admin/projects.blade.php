@@ -29,8 +29,8 @@
                       <th>Project Summary</th>
                       <th>Project Start</th>
                       <th>Project End</th>
-                      <th>Create</th>
-                      <th>Update</th>
+                      {{--  <th>Create</th>
+                      <th>Update</th>  --}}
                   </tr>
               </thead>
             @foreach( $projects as $data )
@@ -41,8 +41,8 @@
                     <td class="center">{{ $data->project_summary }}</td>
                     <td class="center">{{ $data->start }}</td>
                     <td class="center">{{ $data->end }}</td>
-                    <td class="center">{{ $data->created_at }}</td>
-                    <td class="center">{{ $data->updated_at }}</td>
+                    {{--  <td class="center">{{ $data->created_at }}</td>
+                    <td class="center">{{ $data->updated_at }}</td>  --}}
                 </tr>
               </tbody>
             @endforeach

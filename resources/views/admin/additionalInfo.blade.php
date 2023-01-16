@@ -30,10 +30,10 @@
                       <th>Language</th>
                       <th>Linkedin</th>
                       <th>Github</th>
-                      <th>Twitter</th>
+                      {{--  <th>Twitter</th>
                       <th>Behance</th>
                       <th>Create</th>
-                      <th>Update</th>
+                      <th>Update</th>  --}}
                   </tr>
               </thead>
             @foreach( $infos as $data )
@@ -45,10 +45,10 @@
                     <td class="center">{{ $data->language }}</td>
                     <td class="center">{{ $data->linkedin }}</td>
                     <td class="center">{{ $data->github }}</td>
-                    <td class="center">{{ $data->twitter }}</td>
+                    {{--  <td class="center">{{ $data->twitter }}</td>
                     <td class="center">{{ $data->behance }}</td>
                     <td class="center">{{ $data->created_at }}</td>
-                    <td class="center">{{ $data->updated_at }}</td>
+                    <td class="center">{{ $data->updated_at }}</td>  --}}
                 </tr>
               </tbody>
             @endforeach

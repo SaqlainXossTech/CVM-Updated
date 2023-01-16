@@ -31,8 +31,8 @@
                       <th>Pass Year</th>
                       <th>Result</th>
                       <th>Board</th>
-                      <th>Create</th>
-                      <th>Update</th>
+                      {{--  <th>Create</th>
+                      <th>Update</th>  --}}
                   </tr>
               </thead>
             @foreach( $educations as $data )
@@ -45,8 +45,8 @@
                     <td class="center">{{ $data->pass_year }}</td>
                     <td class="center">{{ $data->result }}</td>
                     <td class="center">{{ $data->board }}</td>
-                    <td class="center">{{ $data->created_at }}</td>
-                    <td class="center">{{ $data->updated_at }}</td>
+                    {{--  <td class="center">{{ $data->created_at }}</td>
+                    <td class="center">{{ $data->updated_at }}</td>  --}}
                 </tr>
               </tbody>
             @endforeach

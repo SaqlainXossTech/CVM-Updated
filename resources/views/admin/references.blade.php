@@ -30,8 +30,8 @@
                       <th>Organization</th>
                       <th>Mobile</th>
                       <th>Email</th>
-                      <th>Create</th>
-                      <th>Update</th>
+                      {{--  <th>Create</th>
+                      <th>Update</th>  --}}
                   </tr>
               </thead>
             @foreach( $references as $data )
@@ -43,8 +43,8 @@
                     <td class="center">{{ $data->organization }}</td>
                     <td class="center">{{ $data->mobile }}</td>
                     <td class="center">{{ $data->email }}</td>
-                    <td class="center">{{ $data->created_at }}</td>
-                    <td class="center">{{ $data->updated_at }}</td>
+                    {{--  <td class="center">{{ $data->created_at }}</td>
+                    <td class="center">{{ $data->updated_at }}</td>  --}}
                 </tr>
               </tbody>
             @endforeach

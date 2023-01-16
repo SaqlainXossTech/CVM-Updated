@@ -28,8 +28,8 @@
                       <th>Training Name</th>
                       <th>Training Summary</th>
                       <th>Training End</th>
-                      <th>Create</th>
-                      <th>Update</th>
+                      {{--  <th>Create</th>
+                      <th>Update</th>  --}}
                   </tr>
               </thead>
             @foreach( $trainings as $data )
@@ -39,8 +39,8 @@
                     <td class="center">{{ $data->training_name }}</td>
                     <td class="center">{{ $data->training_summary }}</td>
                     <td class="center">{{ $data->end }}</td>
-                    <td class="center">{{ $data->created_at }}</td>
-                    <td class="center">{{ $data->updated_at }}</td>
+                    {{--  <td class="center">{{ $data->created_at }}</td>
+                    <td class="center">{{ $data->updated_at }}</td>  --}}
                 </tr>
               </tbody>
             @endforeach

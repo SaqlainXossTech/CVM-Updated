@@ -31,8 +31,8 @@
                       <th>Start</th>
                       <th>End</th>
                       <th>Location</th>
-                      <th>Create</th>
-                      <th>Update</th>
+                      {{--  <th>Create</th>
+                      <th>Update</th>  --}}
                   </tr>
               </thead>
             @foreach( $experiences as $data )
@@ -45,8 +45,8 @@
                     <td class="center">{{ $data->start }}</td>
                     <td class="center">{{ $data->end }}</td>
                     <td class="center">{{ $data->location }}</td>
-                    <td class="center">{{ $data->created_at }}</td>
-                    <td class="center">{{ $data->updated_at }}</td>
+                    {{--  <td class="center">{{ $data->created_at }}</td>
+                    <td class="center">{{ $data->updated_at }}</td>  --}}
                 </tr>
               </tbody>
             @endforeach

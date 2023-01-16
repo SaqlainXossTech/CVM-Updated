@@ -26,22 +26,22 @@
                   <tr>
                       <th>User ID</th>
                       <th>Name</th>
-                      <th>Image</th>
-                      <th>Father Name</th>
-                      <th>Mother Name</th>
+                      {{--  <th>Image</th>  --}}
+                      {{--  <th>Father Name</th>  --}}
+                      {{--  <th>Mother Name</th>  --}}
                       <th>Mobile</th>
                       <th>Email</th>
                       <th>Present Address</th>
                       <th>Permanent Address</th>
                       <th>Job Title</th>
-                      <th>Marital Status</th>
-                      <th>Religion</th>
-                      <th>Nationality</th>
-                      <th>Gender</th>
+                      {{--  <th>Marital Status</th>  --}}
+                      {{--  <th>Religion</th>  --}}
+                      {{--  <th>Nationality</th>  --}}
+                      {{--  <th>Gender</th>  --}}
                       <th>Date Of Birth</th>
-                      <th>Profile Summary</th>
+                      {{--  <th>Profile Summary</th>
                       <th>Create</th>
-                      <th>Update</th>
+                      <th>Update</th>  --}}
                   </tr>
               </thead>
             @foreach( $personalInfos as $data )
@@ -49,22 +49,22 @@
                 <tr>
                     <td class="center">{{ $data->user_id }}</td>
                     <td class="center">{{ $data->name }}</td>
-                    <td> <img src="{{URL::to($data->image)}}" style="height: 80px; width: 80px"></td>
-                    <td class="center">{{ $data->father_name }}</td>
-                    <td class="center">{{ $data->mother_name }}</td>
+                    {{--  <td> <img src="{{URL::to($data->image)}}" style="height: 80px; width: 80px"></td>  --}}
+                    {{--  <td class="center">{{ $data->father_name }}</td>  --}}
+                    {{--  <td class="center">{{ $data->mother_name }}</td>  --}}
                     <td class="center">{{ $data->mobile }}</td>
                     <td class="center">{{ $data->email }}</td>
                     <td class="center">{{ $data->present_address }}</td>
                     <td class="center">{{ $data->permanent_address }}</td>
                     <td class="center">{{ $data->job_title }}</td>
-                    <td class="center">{{ $data->marital_status }}</td>
-                    <td class="center">{{ $data->religion }}</td>
-                    <td class="center">{{ $data->nationality }}</td>
-                    <td class="center">{{ $data->gender }}</td>
+                    {{--  <td class="center">{{ $data->marital_status }}</td>  --}}
+                    {{--  <td class="center">{{ $data->religion }}</td>  --}}
+                    {{--  <td class="center">{{ $data->nationality }}</td>  --}}
+                    {{--  <td class="center">{{ $data->gender }}</td>  --}}
                     <td class="center">{{ $data->dob }}</td>
-                    <td class="center">{{ $data->profile_summary }}</td>
+                    {{--  <td class="center">{{ $data->profile_summary }}</td>
                     <td class="center">{{ $data->created_at }}</td>
-                    <td class="center">{{ $data->updated_at }}</td>
+                    <td class="center">{{ $data->updated_at }}</td>  --}}
                 </tr>
               </tbody>
             @endforeach
