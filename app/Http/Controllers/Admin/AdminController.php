@@ -141,6 +141,21 @@ class AdminController extends Controller
         return view('admin.users', compact('allUsers','totalUsers'));
     }
 
+    public function profile($id)
+    {
+        $this->AdminAuthCheck();
+
+        $additonalInfos = DB::table('additonal_infos')->where('user_id', $id)->get();
+        $projects = DB::table('projects')->where('user_id', $id)->get();
+        $education = DB::table('education')->where('user_id', $id)->get();
+        $personal_infos = DB::table('personal_infos')->where('user_id', $id)->get();
+        $references = DB::table('references')->where('user_id', $id)->get();
+        $experiences = DB::table('work_exps')->where('user_id', $id)->get();
+        $trainings = DB::table('trainings')->where('user_id', $id)->get();
+
+        return view('admin.profile', compact('additonalInfos','projects','education','personal_infos','references','experiences','trainings'));
+    }
+
     public function personalInfo()
     {
         $this->AdminAuthCheck();

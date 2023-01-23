@@ -72,6 +72,9 @@ Route::prefix('admin')->group(function () {
     Route::post('/admin-login-auth', 'App\Http\Controllers\Admin\AdminController@adminLoginAuth');
     Route::get('/logout', 'App\Http\Controllers\Admin\AdminController@adminLogout');
 
+    //User Profile...........................................................
+    Route::get('/profile/{id}', 'App\Http\Controllers\Admin\AdminController@profile');
+
     //Interview Tips Route...........................................................
     Route::get('/add-tips', 'App\Http\Controllers\Admin\AdminController@index_tips');
     Route::get('/all-tips', 'App\Http\Controllers\Admin\AdminController@all_tips');

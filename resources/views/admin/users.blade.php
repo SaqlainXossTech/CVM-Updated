@@ -40,6 +40,7 @@
                       <th>Mobile</th>
                       <th>Create</th>
                       <th>Update</th>
+                      <th>Profile</th>
                   </tr>
               </thead>
             @foreach( $allUsers as $data )
@@ -50,6 +51,11 @@
                     <td class="center">{{ $data->mobile }}</td>
                     <td class="center">{{ $data->created_at }}</td>
                     <td class="center">{{ $data->updated_at }}</td>
+                    <td class="center">
+                        <a class="btn btn-info" href="{{URL::to('/admin/profile/'. $data->id)}}">
+                            <i class="halflings-icon white user"></i>
+                        </a>
+                    </td>
                 </tr>
               </tbody>
             @endforeach
